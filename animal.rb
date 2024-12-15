@@ -1,52 +1,40 @@
 class Animal
+  def initialize(wool_color = 'Unknown', weight = 'Unknown')
+    @wool_color = wool_color
+    @weight = weight
+  end
   def talk
-    raise 'Nothing'
+    'This animal does not make a sound'
   end
 
   def wool_color
-    raise 'Nothing'
+    @wool_color
   end
 
   def weigh
-    raise 'Nothing'
+    @weight
   end
 end
 
 class Dog < Animal
+  def initialize(wool_color = 'Brown', weigh = 5)
+    super(wool_color, weigh)
+  end
   def talk
     'Woof!'
-  end
-
-  def wool_color
-    'Brown'
-  end
-
-  def weigh
-    '5 kg'
   end
 end
 
 class Cat < Animal
+  def initialize(wool_color = 'White', weigh = 3)
+    super(wool_color, weigh)
+  end
+
   def talk
     'Meow!'
-  end
-
-  def wool_color
-    'Brown'
-  end
-
-  def weigh
-    '3 kg'
   end
 end
 
 def animal_info(animal)
   "It's a #{animal.wool_color} #{animal.class.name.downcase} who weights #{animal.weigh} and says #{animal.talk}"
 end
-
-dog = Dog.new
-puts animal_info(dog)
-
-cat = Cat.new
-
-puts animal_info(cat)
